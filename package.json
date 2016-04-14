@@ -1,6 +1,6 @@
 {
   "name": "postnord",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Track PostNord letters, parcels and pallets by their item ID number",
   "license": "MIT",
   "repository": "gillstrom/postnord",
