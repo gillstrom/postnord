@@ -3,6 +3,9 @@
 > Track PostNord letters, parcels and pallets by their item ID number
 
 
+<img src="https://cloud.githubusercontent.com/assets/972551/14539645/804ca1e4-0281-11e6-9ec3-06c444e25fd3.png" width="500px"/>
+
+
 ## CLI
 
 ```
