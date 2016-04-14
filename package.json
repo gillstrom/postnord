@@ -1,0 +1,50 @@
+{
+  "name": "postnord",
+  "version": "0.0.0",
+  "description": "Track PostNord letters, parcels and pallets by their item ID number",
+  "license": "MIT",
+  "repository": "gillstrom/postnord",
+  "author": {
+    "name": "Andreas Gillström",
+    "email": "andreasgillstrom@gmail.com",
+    "url": "github.com/gillstrom"
+  },
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "api",
+    "app",
+    "cli",
+    "cli-app",
+    "letter",
+    "pallet",
+    "parcel",
+    "post",
+    "postnord",
+    "track"
+  ],
+  "dependencies": {
+    "arrify": "^1.0.1",
+    "chalk": "^1.1.3",
+    "condense-keys": "^1.1.0",
+    "easydate": "^2.1.0",
+    "got": "^6.3.0",
+    "meow": "^3.7.0",
+    "object-assign": "^4.0.1",
+    "ora": "^0.2.1",
+    "query-string": "^4.1.0"
+  },
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "xo": "^0.14.0"
+  }
+}
