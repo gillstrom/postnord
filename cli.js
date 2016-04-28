@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const arrify = require('arrify');
+const capitalize = require('capitalize');
 const chalk = require('chalk');
 const easydate = require('easydate');
 const meow = require('meow');
@@ -49,21 +50,24 @@ const getEvents = arr => {
 	});
 };
 
+const getMeasurement = obj => {
+	for (const x in obj) {
+		if (x) {
+			log(`${capitalize(x)}:\t\t${obj[x].value} ${obj[x].unit}`);
+		}
+	}
+};
+
 const getItems = arr => arr.forEach(obj => {
 	log(['', obj.statusText.body]);
 
 	if (obj.acceptor) {
-		log([chalk.dim(`  Signed by: ${obj.acceptor.name}`), '', '']);
+		log(chalk.dim(`  Signed by: ${obj.acceptor.name}`));
 	}
 
+	log(['', '']);
 	getEvents(obj.events);
-
-	log([
-		`Weight:\t\t${obj.statedMeasurement.weight.value} ${obj.statedMeasurement.weight.unit}`,
-		`Length:\t\t${obj.statedMeasurement.length.value} ${obj.statedMeasurement.length.unit}`,
-		`Width:\t\t${obj.statedMeasurement.width.value} ${obj.statedMeasurement.width.unit}`,
-		`Height:\t\t${obj.statedMeasurement.height.value} ${obj.statedMeasurement.height.unit}`
-	]);
+	getMeasurement(obj.statedMeasurement);
 });
 
 const print = obj => {
@@ -74,15 +78,19 @@ const print = obj => {
 	}
 
 	getItems(obj.items);
+	log(['', `Sender:\t\t${obj.consignor.name}`]);
+
+	if (obj.consignor.address) {
+		log([
+			`\t\t${obj.consignor.address.postCode || ''} ${obj.consignor.address.city || ''}`,
+			`\t\t${obj.consignor.address.country || ''}`
+		]);
+	}
 
 	log([
 		'',
-		`Sender:\t\t${obj.consignor.name}`,
-		`\t\t${obj.consignor.address.postCode} ${obj.consignor.address.city}`,
-		`\t\t${obj.consignor.address.country}`,
-		'',
-		`Recipienter:\t${obj.consignee.address.postCode} ${obj.consignee.address.city}`,
-		`\t\t${obj.consignee.address.country}`
+		`Recipienter:\t${obj.consignee.address.postCode || ''} ${obj.consignee.address.city || ''}`,
+		`\t\t${obj.consignee.address.country || ''}`
 	]);
 };
 

@@ -1,11 +1,10 @@
 'use strict';
 const condenseKeys = require('condense-keys');
 const got = require('got');
-const objectAssign = require('object-assign');
 const queryString = require('query-string');
 
 module.exports = (id, opts) => {
-	opts = objectAssign({
+	opts = Object.assign({
 		apikey: 'bb956a2d13a54a152dba849b76288cf4',
 		locale: 'en'
 	}, condenseKeys(opts), {id});
@@ -14,7 +13,7 @@ module.exports = (id, opts) => {
 		throw new Error('Expected an API key');
 	}
 
-	if (typeof id !== 'string') {
+	if (typeof id === 'undefined') {
 		throw new TypeError('Expected a shipment or item identifier');
 	}
 

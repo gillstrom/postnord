@@ -34,12 +34,12 @@
   ],
   "dependencies": {
     "arrify": "^1.0.1",
+    "capitalize": "^1.0.0",
     "chalk": "^1.1.3",
     "condense-keys": "^1.1.0",
     "easydate": "^2.1.0",
     "got": "^6.3.0",
     "meow": "^3.7.0",
-    "object-assign": "^4.0.1",
     "ora": "^0.2.1",
     "query-string": "^4.1.0"
   },
