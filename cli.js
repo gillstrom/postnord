@@ -22,7 +22,8 @@ const cli = meow([`
 	alias: {
 		a: 'apikey',
 		l: 'locale'
-	}
+	},
+	string: ['_']
 });
 
 if (!cli.input[0]) {
