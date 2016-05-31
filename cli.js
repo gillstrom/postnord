@@ -22,13 +22,16 @@ const cli = meow([`
 	alias: {
 		a: 'apikey',
 		l: 'locale'
-	}
+	},
+	string: ['_']
 });
 
 if (!cli.input[0]) {
 	console.error(chalk.red('Expected a shipment or item identifier'));
 	process.exit(1);
 }
+
+console.log(cli.input);
 
 const spinner = ora('Loading shipment information');
 spinner.start();
