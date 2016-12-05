@@ -90,7 +90,7 @@ const print = obj => {
 
 	log([
 		'',
-		`Recipienter:\t${obj.consignee.address.postCode || ''} ${obj.consignee.address.city || ''}`,
+		`Recipient:\t${obj.consignee.address.postCode || ''} ${obj.consignee.address.city || ''}`,
 		`\t\t${obj.consignee.address.country || ''}`
 	]);
 };
